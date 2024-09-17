@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
@@ -10,7 +11,28 @@ class Product(models.Model):
     desc3 = models.TextField()
     desc4 = models.TextField()
     desc5 = models.TextField()
+    nameuser = models.CharField(max_length=255, default='Unknown')
+    npmuser = models.CharField(max_length=255, default='0000000000')
+    classuser = models.CharField(max_length=255, default='Unknown')
+
+
+ 
+
 
 
     def _str_(self):
         return self.name
+    
+class MoodEntry(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)  # add this line
+    mood = models.CharField(max_length=255, default='')
+    time = models.DateField(auto_now_add=True)
+    feelings = models.CharField(max_length=255, default='')
+    mood_intensity = models.CharField(max_length=255, default='')
+    name = models.CharField(max_length=255, default='')
+    price = models.CharField(max_length=255, default='')
+    description = models.TextField(max_length=255, default='')
+
+    @property
+    def is_mood_strong(self):
+        return self.mood_intensity > 5
