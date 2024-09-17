@@ -1,6 +1,6 @@
 ## KANGZEN STORE
 
-## LINK : hafizh.surya-kangzenstore.pbp.cs.ui.ac.id
+## LINK : hafizh-surya-kangzenstore.pbp.cs.ui.ac.id
 
 
 ## ASSIGNMENT 2
