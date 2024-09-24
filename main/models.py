@@ -1,8 +1,9 @@
 from django.db import models
 import uuid
+from django.contrib.auth.models import User
 
 class Product(models.Model):
-    name = models.CharField(max_length=255)
+    nameser = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
     rating = models.DecimalField(max_digits=5, decimal_places=2)
@@ -32,6 +33,7 @@ class MoodEntry(models.Model):
     name = models.CharField(max_length=255, default='')
     price = models.CharField(max_length=255, default='')
     description = models.TextField(max_length=255, default='')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     @property
     def is_mood_strong(self):
