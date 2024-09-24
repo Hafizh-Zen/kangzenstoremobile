@@ -75,3 +75,41 @@ I start by making a new file called form.py that contains the fields and the mod
 ### JSON ID
 
 ![](assignment3_3.png)
+
+
+
+## ASSIGNMENT 4
+
+1. What is the difference between HttpResponseRedirect() and redirect()?
+
+In Django, both HttpResponseRedirect() and redirect() are used for redirects, but they differ in how easy they are to use. HttpResponseRedirect() is a more basic function that requires you to provide the full URL or path where you want to send the user. It's useful when you need more control, but you have to manually handle the URL.
+
+On the other hand, redirect() is more flexible and easier to use. It can take a full URL, a path, a view name, or even a model instance. This makes it simpler, especially when you’re redirecting to a view or object without needing to build the URL yourself. While both do the same job, redirect() is more convenient for most situations.
+
+2. Explain how the MoodEntry model is linked with User!
+
+The MoodEntry model can be associated with the User model through a ForeignKey field, creating a one-to-many relationship where each mood entry is tied to a specific user. For example, using ForeignKey(User, on_delete=models.CASCADE) connects each mood entry to a user, and if that user is deleted, their related mood entries are automatically removed as well.
+
+3. What is the difference between authentication and authorization, and what happens when a user logs in? Explain how Django implements these two concepts.
+
+Authentication verifies a user's identity by checking credentials like a username and password, answering "Who are you?" Authorization comes after and determines what actions or resources a user can access, answering "What can you do?"
+
+When a user logs in, Django's auth framework handles authentication by checking the credentials and creating a session for the user. After authentication, Django uses a permissions system for authorization, determining what the user is allowed to do based on their permissions or group memberships. In short, authentication identifies the user, and authorization controls their access.
+
+4. How does Django remember logged-in users? Explain other uses of cookies and whether all cookies are safe to use.
+
+Django remembers logged-in users by using cookies. When a user logs in successfully, Django creates a session and sends a cookie to the user's browser. This cookie contains a session ID, which Django uses to link the user to their session data stored on the server. With each subsequent request, the browser sends the cookie back to the server, allowing Django to retrieve the session data and identify the user as logged in.
+
+Cookies have various other uses beyond managing sessions. They can store user preferences, track site visits, or enable personalized experiences, such as remembering items in a shopping cart or maintaining language settings across visits.
+
+However, not all cookies are equally safe. Cookies can be vulnerable to security risks, like cross-site scripting (XSS) or cross-site request forgery (CSRF) attacks. To enhance security, Django provides features like HttpOnly cookies (which prevent JavaScript access) and Secure cookies (which are only sent over HTTPS connections). Proper cookie management and implementing these protections help mitigate potential risks.
+
+In summary, Django uses cookies to manage logged-in users by storing a session ID. While cookies serve many purposes, it's essential to implement security measures to ensure they are safe.
+
+5. Explain how did you implement the checklist step-by-step (apart from following the tutorial).
+
+I began by developing functions for user registration, login, and logout in the views.py file and then connected these functions to the appropriate paths in urls.py. After that, I created the templates register.html and login.html to provide the user interface for registration and login. For the logout feature, I added a button in main.html to allow users to log out easily.
+
+Once the functions were complete, I created two user accounts, each with three associated data entries, and ensured this data could be accessed locally. I used user = models.ForeignKey(User, on_delete=models.CASCADE) in the model to link the data to the respective user.
+
+Additionally, I implemented cookies to track user activity, specifically the last login time. I modified the show_main, login_user, and logout_user views to manage this functionality. The last login time is stored in a cookie and displayed in main.html. I set the cookie when the user logs in and handled its expiration when the user logs out.
