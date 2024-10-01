@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect   # Add import redirect at this line
+from django.shortcuts import render, redirect, reverse  # Add import redirect at this line
 from main.forms import MoodEntryForm
 from main.models import MoodEntry
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -31,7 +31,7 @@ def show_main(request):
         'npmuser': '2306256343',
         'classuser': 'KKI CSGE602022 Platform-Based Programming',
         'mood_entries': mood_entries, 
-        'last_login': request.COOKIES['last_login'],
+        'last_login': request.COOKIES.get('last_login', 'No previous login'),
         'name': request.user.username,
     }
 
@@ -52,13 +52,7 @@ def create_mood_entry(request):
 
 def show_xml(request):
     data = MoodEntry.objects.all()
-
-def show_xml(request):
-    data = MoodEntry.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
-
-def show_json(request):
-    data = MoodEntry.objects.all()
 
 def show_json(request):
     data = MoodEntry.objects.all()
@@ -107,3 +101,25 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
+def edit_mood(request, id):
+    # Get mood entry based on id
+    mood = MoodEntry.objects.get(pk = id)
+
+    # Set mood entry as an instance of the form
+    form = MoodEntryForm(request.POST or None, instance=mood)
+
+    if form.is_valid() and request.method == "POST":
+        # Save form and return to home page
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_mood.html", context)
+
+def delete_mood(request, id):
+    # Get mood based on id
+    mood = MoodEntry.objects.get(pk = id)
+    # Delete mood
+    mood.delete()
+    # Return to home page
+    return HttpResponseRedirect(reverse('main:show_main'))
