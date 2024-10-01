@@ -1,20 +1,90 @@
-.form-style form input, form textarea, form select {
+.form-style form input,
+form textarea,
+form select {
     width: 100%;
     padding: 0.5rem;
     border: 2px solid #bcbcbc;
     border-radius: 0.375rem;
 }
-.form-style form input:focus, form textarea:focus, form select:focus {
+
+.form-style form input:focus,
+form textarea:focus,
+form select:focus {
     outline: none;
     border-color: #674ea7;
     box-shadow: 0 0 0 3px #674ea7;
 }
+
 @keyframes shine {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
 }
+
 .animate-shine {
     background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3));
     background-size: 200% 100%;
     animation: shine 3s infinite;
+}
+
+/* Neon Button Styles */
+.neon-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background: #0ff; /* Neon cyan */
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff; /* Neon glow effect */
+}
+
+.neon-button:hover {
+    background: #ff0; /* Change to neon yellow on hover */
+    box-shadow: 0 0 20px #ff0, 0 0 30px #ff0, 0 0 40px #ff0;
+}
+
+.glow-effect {
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+}
+
+.text-neon-pink {
+    color: #ff007f; /* Neon pink */
+}
+
+.text-neon-blue {
+    color: #00ffff; /* Neon cyan */
+}
+
+.bg-neon-red {
+    background-color: #ff004d;
+}
+
+.bg-neon-red-light {
+    background-color: #ff3366;
+}
+
+.bg-neon-green {
+    background-color: #0f0;
+}
+
+.bg-neon-green-light {
+    background-color: #66ff66;
+}
+
+.bg-neon-blue {
+    background-color: #00ffff;
+}
+
+.bg-neon-blue-light {
+    background-color: #66ffff;
+}
+
+.neon-border {
+    border: 2px solid #0ff;
+    box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
 }
