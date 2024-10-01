@@ -1,6 +1,7 @@
+/* Form Styles */
 .form-style form input,
-form textarea,
-form select {
+.form-style form textarea,
+.form-style form select {
     width: 100%;
     padding: 0.5rem;
     border: 2px solid #bcbcbc;
@@ -8,13 +9,14 @@ form select {
 }
 
 .form-style form input:focus,
-form textarea:focus,
-form select:focus {
+.form-style form textarea:focus,
+.form-style form select:focus {
     outline: none;
     border-color: #674ea7;
     box-shadow: 0 0 0 3px #674ea7;
 }
 
+/* Keyframes for Shine Animation */
 @keyframes shine {
     0% {
         background-position: -200% 0;
@@ -30,61 +32,35 @@ form select:focus {
     animation: shine 3s infinite;
 }
 
-/* Neon Button Styles */
-.neon-button {
+.spotify-button {
     display: inline-block;
     padding: 0.5rem 1rem;
     color: #fff;
-    background: #0ff; /* Neon cyan */
-    border-radius: 5px;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff; /* Neon glow effect */
+    background: transparent;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: background 0.3s ease;
 }
 
-.neon-button:hover {
-    background: #ff0; /* Change to neon yellow on hover */
-    box-shadow: 0 0 20px #ff0, 0 0 30px #ff0, 0 0 40px #ff0;
+.spotify-button:hover {
+    background: rgba(255, 255, 255, 0.1); 
 }
 
-.glow-effect {
-    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+
+.bg-spotify-green {
+    background-color: #1DB954; 
 }
 
-.text-neon-pink {
-    color: #ff007f; /* Neon pink */
+.bg-spotify-green-dark {
+    background-color: #1AA34A; 
 }
 
-.text-neon-blue {
-    color: #00ffff; /* Neon cyan */
+.mobile-menu {
+    background-color: #000; 
 }
-
-.bg-neon-red {
-    background-color: #ff004d;
+.content-container {
+    margin-top: 100px;
 }
-
-.bg-neon-red-light {
-    background-color: #ff3366;
-}
-
-.bg-neon-green {
-    background-color: #0f0;
-}
-
-.bg-neon-green-light {
-    background-color: #66ff66;
-}
-
-.bg-neon-blue {
-    background-color: #00ffff;
-}
-
-.bg-neon-blue-light {
-    background-color: #66ffff;
-}
-
-.neon-border {
-    border: 2px solid #0ff;
-    box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+.huge-margin {
+    margin-top: 500px; 
 }

@@ -27,5 +27,4 @@ urlpatterns = [
     path('edit-mood/<uuid:id>', edit_mood, name='edit_mood'),
     path('delete/<uuid:id>', delete_mood, name='delete_mood'), # adjust to the name of the function you created
 
-
 ]
