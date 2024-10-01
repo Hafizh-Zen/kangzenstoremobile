@@ -113,3 +113,50 @@ I began by developing functions for user registration, login, and logout in the 
 Once the functions were complete, I created two user accounts, each with three associated data entries, and ensured this data could be accessed locally. I used user = models.ForeignKey(User, on_delete=models.CASCADE) in the model to link the data to the respective user.
 
 Additionally, I implemented cookies to track user activity, specifically the last login time. I modified the show_main, login_user, and logout_user views to manage this functionality. The last login time is stored in a cookie and displayed in main.html. I set the cookie when the user logs in and handled its expiration when the user logs out.
+
+
+## ASSIGNMENT 5
+
+1. If there are multiple CSS selectors for an HTML element, explain the priority order of these CSS selectors! 
+
+CSS allows developers to style HTML elements, but when multiple selectors apply to a single element, understanding their priority is crucial.
+
+Inline styles (style="color: red;") have the highest priority, overriding both external and internal styles. Next are IDs (#header), which are unique to a single element and take precedence over classes.
+
+Classes (.button { color: white; }) can be applied to multiple elements and have lower specificity than IDs but higher than element selectors (e.g., div, p) and the universal selector (*), which have the lowest priority.
+
+If two selectors have the same specificity, the one defined later in the stylesheet takes precedence, demonstrating the cascading nature of CSS. This system helps developers control the appearance of web pages effectively.
+
+2. Why does responsive design become an important concept in web application development? Give examples of applications that have and have not implemented responsive design!
+
+Responsive design is essential in modern web development due to the wide range of devices and screen sizes used to access the internet. As smartphones, tablets, and varying screen resolutions become more common, ensuring a seamless user experience across all devices is crucial.
+
+The main benefit of responsive design is improved user experience. It ensures that elements are appropriately sized, menus are accessible, and content is readable on any device, whether a desktop, tablet, or mobile phone. Websites like Amazon and Netflix showcase responsive design by automatically adjusting layouts, images, and navigation for optimal viewing. In contrast, sites lacking responsiveness often frustrate users with small text, difficult navigation, or excessive scrolling.
+
+In short, responsive design is key to creating accessible, user-friendly applications in today’s multi-device world, ultimately boosting user satisfaction and engagement.
+
+3. Explain the differences between margin, border, and padding, and how to implement these three things!
+
+Understanding margin, border, and padding is essential in CSS, as they each serve a unique role in the box model for web design.
+
+Margin is the space outside an element's border, creating separation between the element and its surroundings. It’s transparent and can be set using properties like margin-top, margin-bottom, or the shorthand margin. For example, margin: 10px 20px; sets a 10-pixel margin on the top and bottom, and a 20-pixel margin on the left and right sides.
+
+Border is the line that surrounds an element's padding and content. It can be styled in terms of thickness, color, and pattern (e.g., dotted, double). The border occupies space and affects the element's overall size. It can be set with properties like border-width, border-style, border-color, or the shorthand border, e.g., border: 3px dotted blue;.
+
+Padding is the space inside the element, between its content and border. It prevents content from touching the border and can be adjusted with properties like padding-top, padding-bottom, or the shorthand padding. For example, padding: 5px 15px; applies 5-pixel padding to the top and bottom and 15-pixel padding to the left and right sides.
+
+In short, margin creates space outside an element, padding creates space inside, and the border separates padding from the outer margin.
+
+4. Explain the concepts of flex box and grid layout along with their uses!
+
+Flexbox and Grid Layout are two powerful CSS systems for designing flexible and responsive web layouts.
+
+Flexbox (Flexible Box Layout) is suited for one-dimensional layouts, allowing items in a container to align along a single axis—either horizontally or vertically. It dynamically distributes space among items with properties like justify-content, align-items, and flex-direction. For example, creating an evenly spaced, centered navigation bar is straightforward using Flexbox.
+
+Grid Layout is a two-dimensional system, perfect for complex layouts involving both rows and columns. It provides precise control over layout structure using properties like grid-template-rows, grid-template-columns, and grid-area. For instance, arranging a gallery of images with captions can be efficiently handled using Grid.
+
+In summary, Flexbox is ideal for simpler, one-dimensional layouts, while Grid is best for more intricate, two-dimensional designs. Both are essential for building responsive, visually appealing web pages.
+
+5. Explain how you implemented the checklist above step-by-step (not just following the tutorial)!
+
+First, to have the delete and edit functions on the website, I created 2 functions in the views.py, which are delete_mood and edit_mood. Then both of these functions are used in the templates. Then I added these functions to the urls.py. After that, I added Tailwind to the folder so i could use CSS. Then, i modified my website to have a spotify look to it as i like the minimalistic design. When there are no product, it will display a message and a picture of Vegeta. In each card moof, there are two buttons which are edit and delete. Other than that, I also added a navbar with features on it.
