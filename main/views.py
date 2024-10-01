@@ -123,3 +123,5 @@ def delete_mood(request, id):
     mood.delete()
     # Return to home page
     return HttpResponseRedirect(reverse('main:show_main'))
+
+
