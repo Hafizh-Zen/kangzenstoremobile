@@ -12,10 +12,12 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 
 @login_required(login_url='/login')
 def show_main(request):
-    mood_entries = MoodEntry.objects.filter(user=request.user)
+    
 
     context = {
         'nameser': 'Adudu',
@@ -30,7 +32,7 @@ def show_main(request):
         'nameuser': 'Hafizh Surya Mustafa Zen',
         'npmuser': '2306256343',
         'classuser': 'KKI CSGE602022 Platform-Based Programming',
-        'mood_entries': mood_entries, 
+         
         'last_login': request.COOKIES.get('last_login', 'No previous login'),
         'name': request.user.username,
     }
@@ -89,6 +91,8 @@ def login_user(request):
             response = HttpResponseRedirect(reverse("main:show_main"))
             response.set_cookie('last_login', str(datetime.datetime.now()))
             return response
+        else:
+            messages.error(request, "Invalid username or password. Please try again.")
 
     else:
         form = AuthenticationForm(request)
@@ -124,4 +128,19 @@ def delete_mood(request, id):
     # Return to home page
     return HttpResponseRedirect(reverse('main:show_main'))
 
+@csrf_exempt
+@require_POST
+def add_mood_entry_ajax(request):
+    mood = request.POST.get("mood")
+    feelings = request.POST.get("feelings")
+    mood_intensity = request.POST.get("mood_intensity")
+    user = request.user
 
+    new_mood = MoodEntry(
+        mood=mood, feelings=feelings,
+        mood_intensity=mood_intensity,
+        user=user
+    )
+    new_mood.save()
+
+    return HttpResponse(b"CREATED", status=201)

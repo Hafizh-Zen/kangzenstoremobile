@@ -10,6 +10,7 @@ from main.views import logout_user
 from . import views
 from main.views import edit_mood
 from main.views import delete_mood
+from main.views import add_mood_entry_ajax
 
 app_name = 'main'
 
@@ -25,6 +26,8 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('logout/', views.logout_user, name='logout'),
     path('edit-mood/<uuid:id>', edit_mood, name='edit_mood'),
-    path('delete/<uuid:id>', delete_mood, name='delete_mood'), # adjust to the name of the function you created
+    path('delete/<uuid:id>', delete_mood, name='delete_mood'), 
+    path('create-mood-entry-ajax', add_mood_entry_ajax, name='add_mood_entry_ajax'),
+    path('add-mood-entry-ajax/', views.add_mood_entry_ajax, name='add_mood_entry_ajax'),
 
 ]
