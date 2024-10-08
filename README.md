@@ -160,3 +160,25 @@ In summary, Flexbox is ideal for simpler, one-dimensional layouts, while Grid is
 5. Explain how you implemented the checklist above step-by-step (not just following the tutorial)!
 
 First, to have the delete and edit functions on the website, I created 2 functions in the views.py, which are delete_mood and edit_mood. Then both of these functions are used in the templates. Then I added these functions to the urls.py. After that, I added Tailwind to the folder so i could use CSS. Then, i modified my website to have a spotify look to it as i like the minimalistic design. When there are no product, it will display a message and a picture of Vegeta. In each card moof, there are two buttons which are edit and delete. Other than that, I also added a navbar with features on it.
+
+## ASSIGNMENT 6
+
+1. Explain the benefits of using JavaScript in developing web applications!
+
+JavaScript provides several benefits in web development, including enabling interactivity, client-side processing, and asynchronous operations. This allows developers to create dynamic, fast-loading pages that don't require constant communication with the server. JavaScript is also cross-platform, running in all modern browsers, and is supported by a vast ecosystem of frameworks and libraries like React and Angular, which makes developing complex applications easier and more efficient.
+
+2. Explain why we need to use await when we call fetch()! What would happen if we don't use await?
+
+The fetch() function in JavaScript is asynchronous, returning a promise that resolves when data is fetched. Using await ensures that the program pauses and waits for the promise to resolve before continuing execution. Without await, the code would move to the next line before the data is ready, potentially leading to errors such as trying to access undefined or incomplete data.
+
+3. Why do we need to use the csrf_exempt decorator on the view used for AJAX POST?
+
+The csrf_exempt decorator in Django is used for views that handle AJAX POST requests to bypass the CSRF token validation, which is a security feature that prevents cross-site request forgery attacks. Since adding a CSRF token in AJAX requests might require additional handling, this decorator allows easier processing of the requests. However, it should be used carefully, as bypassing CSRF protection can introduce security vulnerabilities if not managed properly.
+
+4. On this week's tutorial, the user input sanitization is done in the back-end as well. Why can't the sanitization be done just in the front-end?
+
+Input sanitization should not rely solely on the front-end because users can manipulate or bypass client-side validation. Front-end sanitization improves user experience by catching errors early, but it does not guarantee security. Backend sanitization is essential because it ensures that only safe and valid data is processed and stored, protecting against malicious attacks like SQL injection or cross-site scripting, and ensuring data integrity.
+
+5.  Explain how you implemented the checklist above step-by-step (not just following the tutorial)!
+
+awadwadwdw
