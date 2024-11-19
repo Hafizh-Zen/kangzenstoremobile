@@ -181,4 +181,26 @@ Input sanitization should not rely solely on the front-end because users can man
 
 5.  Explain how you implemented the checklist above step-by-step (not just following the tutorial)!
 
-awadwadwdw
+## ASSINGMENT 7
+
+1. Explain what are stateless widgets and stateful widgets, and explain the difference between them.
+
+Stateless widgets are immutable widgets, meaning they cannot be altered or modified once created. These widgets are rendered a single time since their properties remain constant throughout the runtime of the application. Examples include text labels or static UI components.
+
+In contrast, stateful widgets are dynamic and can change during runtime based on user interactions or other triggers. These widgets rely on a state object that manages changes and rebuilds the widget as needed. Examples of stateful widgets include interactive buttons or text fields that update dynamically. Unlike stateless widgets, stateful widgets are rebuilt multiple times as their state changes.
+
+2. Mention the widgets that you have used for this project and its uses.
+
+For this project, various widgets were used to build the app’s functionality and interface. The MaterialApp widget served as the root, providing the app's theme and navigation structure. The Scaffold widget helped create the overall layout, including sections like the app bar and body.
+
+The AppBar widget was utilized for the title bar, while Material and InkWell widgets provided a card-like design with clickable functionality. Other widgets like Text, Icon, and SnackBar were employed to display text, show icons, and give user feedback, respectively.
+
+
+
+3. What is the use-case for setState()? Explain the variable that can be affected by setState()
+
+The setState() method is essential for updating the state of widgets that are built using StatefulWidget. When called, it triggers a rebuild of the widget, allowing the UI or other components to update based on changes in state. This method is commonly used for interactive widgets that need to adapt dynamically during runtime, such as form inputs or buttons that reflect user actions.
+
+4. Explain the difference between const and final keyword.
+
+Both const and final are used to define variables that do not change once assigned. However, const is for compile-time constants, meaning the value must be determined before the application starts. On the other hand, final is used for variables assigned only once, but their value can be determined at runtime. While they share similarities, const is ideal for fixed values, and final is more suitable for runtime-initialized variables.
