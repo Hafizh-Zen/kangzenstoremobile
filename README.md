@@ -204,3 +204,20 @@ The setState() method is essential for updating the state of widgets that are bu
 4. Explain the difference between const and final keyword.
 
 Both const and final are used to define variables that do not change once assigned. However, const is for compile-time constants, meaning the value must be determined before the application starts. On the other hand, final is used for variables assigned only once, but their value can be determined at runtime. While they share similarities, const is ideal for fixed values, and final is more suitable for runtime-initialized variables.
+
+# ASSIGNMENT 8
+
+1. What is the purpose of const in Flutter? Explain the advantages of using const in Flutter code. When should we use const, and when should it not be used?
+The const keyword in Flutter is used to create compile-time constants that do not need to be rebuilt unnecessarily. It designates elements as static, which enhances performance by reducing resource consumption since the element is already prepared and does not require additional computation. const is ideal for widgets that remain unchanged and are built only once. However, it should not be used for dynamic widgets that depend on user interactions or data changes.
+
+2. Explain and compare the usage of Column and Row in Flutter. Provide example implementations of each layout widget!
+Both Column and Row are used to arrange child elements in Flutter, but they differ in the direction they align the elements. A Row arranges elements horizontally, side by side, while a Column arranges them vertically, one below the other. The choice between the two depends on how the UI elements need to be displayed.
+
+3. List the input elements you used on the form page in this assignment. Are there other Flutter input elements you didn’t use in this assignment? Explain!
+The form page in this task used TextFormField for inputs like name, price, description, stock, and category. However, Flutter provides other input elements, such as Slider, Radio, Switch, and DropdownButton. These elements are suitable for specific input needs, like selecting a value range with a Slider or picking a category from a dropdown using DropdownButton. Although these input types offer more options, their use depends on the app’s requirements, and in this case, they were not implemented.
+
+4. How do you set the theme within a Flutter application to ensure consistency? Did you implement a theme in your application?
+To define a theme, the MaterialApp widget is configured with a ThemeData object, where key colors, secondary colors, and other theme properties are specified. This ensures a consistent color scheme throughout the application whenever the theme is invoked. In this app, a theme was implemented using dark colors to match the website’s design, which was better suited than the default white background, creating a cohesive look and feel.
+
+5. How do you manage navigation in a multi-page Flutter application?
+Navigation in this app is managed using two methods: a drawer navigation menu and on-screen buttons. Internally, Flutter’s navigation system functions like a stack or FIFO structure. When navigating to a new page, the Navigator.push method is used to add the route to the stack. Routes are often linked to the names of their respective widgets. The navigator tracks the user’s movement between pages, maintaining a history that makes it easy to return to the previous page by simply removing the top of the stack. This approach ensures seamless navigation while keeping track of user activity.
