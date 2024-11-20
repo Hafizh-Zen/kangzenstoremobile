@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kangzenstore/screens/menu.dart';
-
+import 'package:kangzenstore/screens/list_moodentry.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -104,6 +104,17 @@ class LeftDrawer extends StatelessWidget {
                   builder: (context) => LogoutPage(), // Replace with your LogoutPage
                 ),
               );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.add_reaction_rounded),
+            title: const Text('Mood List'),
+            onTap: () {
+                // Route to the mood page
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MoodEntryPage()),
+                );
             },
           ),
         ],

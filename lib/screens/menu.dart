@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/left_drawer.dart';
 import 'moodentry_form.dart';
-import '../widgets/mood_card.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
